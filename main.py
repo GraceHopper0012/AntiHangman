@@ -1,4 +1,5 @@
 from hangman import HangmanSpiel
+from classes import *
 
 gewonnen = False
 SPIEL = HangmanSpiel()
@@ -10,12 +11,19 @@ while not gewonnen:
         print("Du hast verloren!")
         # break
     buchstabe = input("\nWas rätst du? ")
-    richtig = SPIEL.raten(buchstabe)
+    guessresp = SPIEL.raten(buchstabe)
     
-    if richtig:
-        print("Richtig!\n")
+    if guessresp:
+        if not guessresp.repeated:
+            print("Richtig!\n")
+        else:
+            print("Schon geraten!")
     else:
-        print("Falsch!\n")
+        if not guessresp.repeated:
+            print("Falsch!")
+        else:
+            print("Schon geraten!\n")
+
     
     
     gewonnen = SPIEL.ueberpruefe_gewonnen()
