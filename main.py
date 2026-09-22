@@ -1,5 +1,4 @@
 from hangman import HangmanSpiel
-from classes import *
 
 gewonnen = False
 SPIEL = HangmanSpiel()
